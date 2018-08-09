@@ -1,0 +1,27 @@
+{
+
+        "DR_PARAM": "/home/wayne/Projects/RGBD_SLAM/Python/calibrationdata_20180703_02/ToOpenCV/calibration/result/new/result",
+        "IMG_L": "/home/wayne/Projects/RGBD_SLAM/Python/left/0002.jpg",
+        "IMG_R": "/home/wayne/Projects/RGBD_SLAM/Python/right/0002.jpg",
+        "WORKING_DIR": "/home/wayne/Projects/RGBD_SLAM/Python/Reconstruction",
+        "THERMAL_DIR": "/home/wayne/Projects/RGBD_SLAM/Python/stereo/0002.jpg",
+        "ENABLE_THERMAL":0,
+        "SGBM": {
+                "minDisp": 1020,
+                "numDisp": 160,
+                "blockSize": 15,
+                "disp12MaxDiff": 10,
+                "uniquenessRatio": 10,
+                "preFilterCap": 31,
+                "SGBM_P1": 1800,
+                "SGBM_P2": 7200,
+                "speckleWindowSize": 1000,
+                "speckleRange": 2,
+                "enableVignettingCorrector": true,
+                "enforceVignettingCorrection": true,
+                "enableVCOnlyA": false,
+                "haveWLSFilter": true,
+                "sensorPixelSize": [0.00346, 0.00346]
+        }
+}
+

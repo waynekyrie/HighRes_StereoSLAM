@@ -1,7 +1,12 @@
-*py
-*pyc
+*.h~
+*.cpp~
+*.py
+*.json
+*.pyc
 Python/
 pointcloud/
 img/
 src/Scripts/
 build/
+Reconstruction/
+bin/

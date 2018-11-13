@@ -1,23 +1,76 @@
-start_index=0
-end_index=3
+start_index=1
+end_index=250
 
 voxel_grid=0.01
 
 visualize_pointcloud=yes
+pc_thresh=3
+min_good_match=4
 
-min_good_match=10
+min_inliers=0
+step=1
+max_norm=3.5
 
-min_inliers=1
 
-max_norm=10
+good_match_threshold=2.7
 
-detector=SIFT
-descriptor=SIFT
-good_match_threshold=2.5
+path=/home/wayne/Desktop/data_0911/
 
-json_path=/home/wayne/Projects/RGBD_SLAM/src/param
+data=4/
 
-camera.cx=2070.90
-camera.cy=1487.79
-camera.fx=4841.26
-camera.fy=4841.26
+disp12Max=1
+block_size=15
+num_disp=48
+
+cam1.cx=351.96532705
+cam1.cy=230.86408382
+cam1.fx=457.01460487
+cam1.fy=457.06314824
+
+cam2.cx=390.00933579
+cam2.cy=245.97416335
+cam2.fx=461.30169788
+cam2.fy=461.22109302
+
+dist1.a=-0.11231418  
+dist1.b=0.0360163  
+dist1.c=-0.05996764  
+dist1.d=0.02920975
+
+dist2.a=-0.11402134  
+dist2.b=0.00464345  
+dist2.c=-0.00219705  
+dist2.d=0.0003632
+
+camera.cx=433.0545576
+camera.cy=237.44933716
+camera.fx=412.93491514
+camera.fy=412.93491514
+camera.p2=-41.74752764
+Q32=9.89124239
+
+
+R1.00=0.99793835  
+R1.01=0.00616041 
+R1.02=-0.06388352
+R1.10=-0.00625769  
+R1.11=0.99997955 
+R1.12=-0.00132275
+R1.20=0.06387407  
+R1.21=0.00171978  
+R1.22=0.99795648
+
+R2.00=0.99864444  
+R2.01=0.00292627 
+R2.02=-0.05196854
+R2.10=-0.00284714  
+R2.11=0.99999467  
+R2.12=0.0015966
+R2.20=0.05197294 
+R2.21=-0.00144647  
+R2.22=0.99864745
+
+
+fast corner
+more featurepoints 
+adjust focal length

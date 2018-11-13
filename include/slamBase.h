@@ -15,10 +15,11 @@ using namespace std;
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/eigen.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/xfeatures2d.hpp>
 #include <opencv2/features2d/features2d.hpp>
-#include <opencv2/nonfree/nonfree.hpp>
+//#include <opencv2/nonfree/nonfree.hpp>
 #include <opencv2/calib3d/calib3d.hpp>
-using namespace cv;
+//using namespace cv;
 
 #include <pcl/io/pcd_io.h>
 #include <pcl/common/transforms.h>
@@ -40,16 +41,17 @@ struct CAMERA_INTRINSIC_PARAMETERS
 
 struct FRAME
 {
-    Mat rgb;
-    Mat img_3d;
+    cv::Mat rgb;
+    cv::Mat img_3d;
     PointCloud::Ptr cloud;//;(new PointCloud);
-    Mat desp;
+    cv::Mat desp;
+    cv::Mat mask;
     vector<cv::KeyPoint>kp;
 };
 
 struct RESULT_OF_PNP
 {
-    Mat Rvec,Tvec;
+    cv::Mat Rvec,Tvec;
     int inliers;
 };
 
@@ -106,15 +108,19 @@ void computeKeyPointsAndDesp(FRAME& frame, string detector, string descriptor);
 
 RESULT_OF_PNP estimateMotion(FRAME& frame1,FRAME& frame2,CAMERA_INTRINSIC_PARAMETERS& camera);
 
-FRAME image2PointCloud(string json_path);
+void stereo_disp(cv::Mat img1,cv::Mat img2,cv::Mat map_x1,cv::Mat map_y1, cv::Mat map_x2,cv::Mat map_y2,FRAME* frame,string i);
 
-Eigen::Isometry3d cvMat2Eigen(Mat& rvec, Mat& tvec);
+FRAME image2PointCloud(string json_path,double count,float pc_thresh);
+
+Eigen::Isometry3d cvMat2Eigen(cv::Mat& rvec, cv::Mat& tvec);
 
 PointCloud::Ptr joinPointCloud(PointCloud::Ptr original,FRAME newFrame,Eigen::Isometry3d T,CAMERA_INTRINSIC_PARAMETERS& camera);
 
 CAMERA_INTRINSIC_PARAMETERS getCamera(ParameterReader pd);
 
-double normofTransform(Mat rvec,Mat tvec);
+void get_Camera(ParameterReader pd,cv::Mat cam_mtx1,cv::Mat cam_mtx2,cv::Mat dist1,cv::Mat dist2,cv::Mat R1,cv::Mat P1,cv::Mat R2,cv::Mat P2,cv::Mat Q);
+
+double normofTransform(cv::Mat rvec,cv::Mat tvec);
 
 void visualOdometry();
 
